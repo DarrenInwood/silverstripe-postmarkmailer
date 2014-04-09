@@ -39,7 +39,7 @@ Place the following in your _config.php
  * Set the Mailer to be your SilverStripe Mailer instance, Again, place this in 
  your _config.php or before the code you need to send the email:
 
-	Email::set_mailer('PostmarkMailer');
+	Email::set_mailer(new PostmarkMailer());
 
 	
 ## Known Issues

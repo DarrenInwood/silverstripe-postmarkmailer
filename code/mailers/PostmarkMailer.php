@@ -85,10 +85,11 @@ class PostmarkMailer extends Mailer {
 		
 		if($attachedFiles) {
 			foreach($attachedFiles as $file) {
-				$mail->addAttachment(Controller::join_links(
-					Director::absoluteBaseURL(), 
-					$file->Filename
-				));
+				$mail->addCustomAttachment(
+					$file['filename'],
+					$file['contents'],
+					($file['mimetype'] !== null ? $file['mimetype'] : HTTP::get_mime_type($file['filename']))
+				);
 			}
 		}
 		
